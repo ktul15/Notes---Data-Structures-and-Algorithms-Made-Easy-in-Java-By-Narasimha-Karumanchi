@@ -86,6 +86,47 @@ Contributions: Issues, comments and pull requests are super welcome :smiley:
   - Types of inputs - size of an array, polynomial degree, number of elements in a matrix, number of bits, vertices and edges in a graph.
 
 - ## 1.9 How to compare algos?
+
   - Execution time is not a good measure as execution times are specific to a particular computer.
   - Number of statements executed is also not a good measure since the number of statements varies according to the programming language and the style of individual programmer.
   - Ideal way is to express running time of an algo as the function of input size and compare these different functions corresponding to running times. This kind of comparison is independent of machine time, programming style, etc...
+
+- ## 1.10 Rate of Growth
+
+  - The rate at which running time increases as the function of input.
+
+- ## 1.11 Commonly used rate of growths
+
+  - Constant(1), Logarithmic(logn), Linear(n), Linear Logarithmic(nlogn), Quadratic(n^2), Cubic(n^3), Exponential(2^n), Factorial(n!).
+  - Decreasing rates of growths - 2^2^n, n!, 4^n, 2^n, n^2, nlogn, log(n!), n, 2^logn, log^2\*n, logn^1/2, log log n, 1.
+
+- ## 1.12 Types of Analysis
+
+  - Best case: Defines the input for which the algo takes the lowest time. Input is the one for which the algo runs the slowest.
+  - Worst case: Defines the input for which the algo takes the most time. Input is the one for which the algo runs the fastest.
+  - Average case: Provides the prediction about running time. Run the algo many times, using different inputs, compute the total running time and divide by the number of trials. Assumes that the input is random.
+  - Let f(n) be the function which represent the given algo,
+    f(n) = n^2 + 500, for worst case,
+    f(n) = n + 100n + 500, for best case
+
+  - ## 1.13 Asymptotic Notation
+
+    - Having the expressions for the best, worst and average cases, we need to find the upper and lower bounds for all three cases. We need some kind of syntax for that. Let us assume that the given algo is represented in the form of function f(n),
+
+  - ## 1.14 Big-O Notation
+
+    - Gives the tight upper bounds of the given function.
+    - Generally, it's represented as f(n) = O(g(n)). That means, at larger values of n, the upper bound of f(n) is g(n). For example, if f(n) = n^4 + 100n^2 + 50\*n + 10 is the given algo, then n^4 is g(n). g(n) gives the max rate of growth for f(n) at larger values of n.
+    - Our objective is to give smallest rate of growth g(n) which is greater than or equal to given algo's rate of growth f(n).
+    - Rate of growth at lowe values of n is not important.
+    - ### Big-O Visualization
+
+      - O(g(n)) is the set of functions with smaller or same order of growth as g(n).
+      - O(1): 100, 1000, 200, 1, etc..
+      - O(n): 3n + 100, 100n, 2n - 1, 3, etc...
+      - O(nlogn): 5nlogn, 3n - 100, 2n - 1, 100, 100n, etc...
+      - O(n^2): n^2, 5n - 10, 100, n^2 - 2n + 1, 5, etc...
+
+    - ### Big-O Examples
+      - Ex-1: Find upper bound for f(n) = 3n + 8
+      - Sol:
