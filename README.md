@@ -129,4 +129,78 @@ Contributions: Issues, comments and pull requests are super welcome :smiley:
 
     - ### Big-O Examples
       - Ex-1: Find upper bound for f(n) = 3n + 8
+      - Sol: 3n + 8 <= 4n, for all n >= 8
+        so, 3n + 8 = O(n) with c = 4 and n0 = 8
+      - Ex-2: Find upper bound for f(n) = n^2 + 1
       - Sol:
+
+  - ## 1.15 Omega Notation (Lower Bounding Function)
+
+    - This notation gives the tighter lower bound of the given algo.
+
+  - ## 1.16 Theta Notation
+
+    - It deided whether the upper bound and the lower bound is same. The average running time of an algo is always between upper bound and lower bound. If the upper and lower bound is same then theta notation will also have same rate of growth.
+
+  - ## 1.17 Why is it called asymptotic analysis?
+
+    - In the discussion above, we are trying to find a function g(n) for a given function f(n) which approximates f(n) at higher values of n. That means g(n) is a curve which approximates f(n) at higher values. In maths, this curve is called asymptotic curve. That's why we call it asymptotic analysis.
+
+  - ## 1.18 Guidelines for asymptotic analysis
+
+    - There are some general rules to determine the running time of an algo.
+    - ### Loops:
+
+      - The running time of a loop is, at most, the running time of the statements inside the loop (including tests) multiplied by the number of iterations.
+      - // executes ݊n times
+        > for (i=1; i<=n; i++)  
+        > m = m + 2; //constant time, c
+      - Total time - a constant c \* n = cn = O(n)
+
+    - ### Nested Loops:
+      - Analyze from the inside out. Total running time is the product of the sizes of all the loops.
+        > //outer loop executed n times  
+        >  for (i=1; i<=n; i++) {  
+        >  // inner loop executed n times  
+        >  for (j=1; j<=n; j++)  
+        >  k = k+1; //constant time  
+        >  }
+      - Total time = c _ n _ n = cn^2 = O(n^2)
+    - ### Consecutive statements
+      - Add the time complexities of ach statements.
+        > x+ x + 1 // constant time
+        > // executed n times  
+        >  for (i=1; i<=n; i++)  
+        >  m = m + 2; //constant time  
+        > //outer loop executed n times  
+        >  for (i=1; i<=n; i++) {  
+        >  //inner loop executed n times  
+        >  for (j=1; j<=n; j++)  
+        >  k = k+1; //constant time  
+        >  }
+      - Total time = c0 + cn + cn^2 = O(n^2)
+    - ### If-Else statements
+      - Worst case running time: the test, plus either the then part or the else part(Whichever is larger).
+        > //test: constant  
+        >  if(length( ) == 0 ) {  
+        >  return false; //then part: constant  
+        >  }  
+        >  else { // else part: (constant + constant) \* n  
+        >  for (int n = 0; n < length( ); n++) {  
+        >  // another if : constant + constant (no else part)  
+        >  if(!list[n].equals(otherList.list[n]))  
+        >  //constant  
+        >  return false;  
+        >  }  
+        >  }
+      - Total time = c0 + (c1 + c2) \* n = O(n)
+    - ### Logarithmic complexity
+      - An algo is O(logn) if it takes a constant time to cut the problem size by a fraction (usually 1/2).
+        > for (i=1; i<=n;)  
+        >  i = i\*2;
+      - The value of i is doubling every time. If loops runs for k steps then at kth step, 2^k = n.
+      - Taking logs on both sides,
+        log(2^k) = log n
+        klog 2 = log n
+        so, k = log n ///asumming base 2
+      - Total time = O(logn)
